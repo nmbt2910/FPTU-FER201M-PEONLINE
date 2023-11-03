@@ -23,11 +23,14 @@ function Dashboard() {
   };
 
   const handleDelete = async (id) => {
-    try {
-      await axios.delete(`https://6544c6ed5a0b4b04436cf57f.mockapi.io/FPTSUCKS/${id}`);
-      fetchData();
-    } catch (error) {
-      console.log(error);
+    const confirmed = window.confirm('Are you sure you want to delete this item?');
+    if (confirmed) {
+      try {
+        await axios.delete(`https://6544c6ed5a0b4b04436cf57f.mockapi.io/FPTSUCKS/${id}`);
+        fetchData();
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 

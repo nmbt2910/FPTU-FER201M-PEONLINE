@@ -23,6 +23,7 @@ function AddForm() {
     status: false,
     views: 1,
     actractive: false,
+    img: '',
   });
 
   const handleChange = (e) => {
@@ -75,8 +76,7 @@ function AddForm() {
       title: formData.title,
       description: formData.description,
       content: formData.content,
-      img:
-        'https://daihoc.fpt.edu.vn/en/wp-content/uploads/2022/09/dua-nhac-cu-den-cong-dong-373x206.jpg',
+      img: formData.img,
       status: formData.status,
       views: formData.views,
       actractive: formData.actractive,
@@ -97,7 +97,7 @@ function AddForm() {
 
   return (
     <Box sx={{ maxWidth: 600, mx: 'auto', p: 2 }}>
-      <Typography variant="h4" component="h2" gutterBottom>
+      <Typography variant="h4" align="center" component="h2" gutterBottom>
         Add News
       </Typography>
       <Box component="form" onSubmit={handleSubmit}>
@@ -108,6 +108,18 @@ function AddForm() {
               label="Title"
               name="title"
               value={formData.title}
+              onChange={handleChange}
+              required
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              multiline
+              minRows={3}
+              label="Image"
+              name="img"
+              value={formData.img}
               onChange={handleChange}
               required
             />
